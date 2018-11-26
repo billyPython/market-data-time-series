@@ -1,0 +1,6 @@
+[package]
+name = "market-data-time-series"
+version = "0.1.0"
+authors = ["Konstantin Đorđević <vomindoraan@gmail.com>", "Filip Dulić <filip.dulic@gmail.com>"]
+
+[dependencies]
