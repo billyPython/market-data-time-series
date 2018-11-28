@@ -4,3 +4,5 @@ version = "0.1.0"
 authors = ["Konstantin Đorđević <vomindoraan@gmail.com>", "Filip Dulić <filip.dulic@gmail.com>"]
 
 [dependencies]
+influx_db_client = "^0.3.6"
+zmq = "0.8"
