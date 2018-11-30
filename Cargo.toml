@@ -5,4 +5,5 @@ authors = ["Konstantin Đorđević <vomindoraan@gmail.com>", "Filip Dulić <fili
 
 [dependencies]
 influx_db_client = "^0.3.6"
+protobuf = "2.2.0"
 zmq = "0.8"
