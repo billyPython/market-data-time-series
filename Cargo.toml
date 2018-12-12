@@ -1,5 +1,5 @@
 [package]
-name = "market-data-time-series"
+name = "market_data_time_series"
 version = "0.1.0"
 authors = ["Konstantin Đorđević <vomindoraan@gmail.com>", "Filip Dulić <filip.dulic@gmail.com>"]
 

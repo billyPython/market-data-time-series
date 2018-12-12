@@ -1,11 +1,11 @@
 extern crate influx_db_client;
-extern crate zmq_event_sub;
+extern crate market_data_time_series;
 
 use influx_db_client::{Client, Point, Points, Precision, Value};
 
-use zmq_event_sub::mt5_event_subscriber::{Mt5EventSubscriber, Mt5EventZmqFrames};
-use zmq_event_sub::ohlc::ohlcmap::OhlcMap;
-use zmq_event_sub::protobuf_tick::named_tick::NamedTick;
+use market_data_time_series::mt5_event_subscriber::{Mt5EventSubscriber, Mt5EventZmqFrames};
+use market_data_time_series::ohlc::ohlcmap::OhlcMap;
+use market_data_time_series::protobuf_tick::named_tick::NamedTick;
 
 fn zmq2tick(tick: Mt5EventZmqFrames) -> NamedTick {
     NamedTick {
@@ -18,7 +18,7 @@ fn main() {
     let client =
         Client::new("http://192.168.56.1:8086", "mydb").set_authentication("mt5feed", "mt5feed");
 
-    let ctx = zmq_event_sub::zmq::Context::new();
+    let ctx = market_data_time_series::zmq::Context::new();
     let subscriber = Mt5EventSubscriber::new(ctx, b"MDT", "tcp://mt5proxy.tradecore.io:8149");
     let mut ohlc_map = OhlcMap::new();
 
