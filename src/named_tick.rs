@@ -4,8 +4,8 @@ use tick::Tick;
 
 #[derive(Debug)]
 pub struct NamedTick {
-    pub tick: Tick,
     pub symbol: String,
+    pub tick: Tick,
 }
 
 impl NamedTick {
