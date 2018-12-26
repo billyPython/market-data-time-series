@@ -3,13 +3,13 @@ extern crate market_data_time_series;
 
 use influx_db_client::{Client, Point, Precision, Value};
 
-use market_data_time_series::mt5_event_subscriber::Mt5EventSubscriber;
-use market_data_time_series::ohlc::Ohlc;
+use market_data_time_series::mt5_event::MT5EventSubscriber;
 use market_data_time_series::named_tick::NamedTick;
+use market_data_time_series::ohlc::Ohlc;
 
 fn main() {
     let ctx = market_data_time_series::zmq::Context::new();
-    let subscriber = Mt5EventSubscriber::new(ctx, b"MDT", "tcp://mt5proxy.tradecore.io:8149");
+    let subscriber = MT5EventSubscriber::new(ctx, b"MDT", "tcp://mt5proxy.tradecore.io:8149");
     let client = Client::new("http://influxdb:8086", "mdts").set_authentication("mt5", "mt5");
 
     for named_tick in subscriber.into_iter().map(NamedTick::from_frames) {

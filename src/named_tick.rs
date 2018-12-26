@@ -1,4 +1,4 @@
-use mt5_event_subscriber::Mt5EventZmqFrames;
+use mt5_event::MT5EventFrames;
 use protobuf::parse_from_bytes;
 use tick::Tick;
 
@@ -9,7 +9,7 @@ pub struct NamedTick {
 }
 
 impl NamedTick {
-    pub fn from_frames(frames: Mt5EventZmqFrames) -> NamedTick {
+    pub fn from_frames(frames: MT5EventFrames) -> NamedTick {
         NamedTick {
             symbol: String::from_utf8(frames.name).unwrap(),
             tick: parse_from_bytes(&frames.payload).unwrap(),
