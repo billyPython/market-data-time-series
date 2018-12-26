@@ -10,9 +10,9 @@ pub struct Ohlc {
 }
 
 impl Ohlc {
-    pub fn new(tick: &NamedTick) -> Self {
-        let bid: f64 = tick.tick.bid.parse().unwrap();
-        let volume = tick.tick.volume;
+    pub fn new(named_tick: &NamedTick) -> Self {
+        let bid: f64 = named_tick.tick.bid.parse().unwrap();
+        let volume = named_tick.tick.volume;
         Self {
             open: bid,
             high: bid,
@@ -27,8 +27,8 @@ impl Ohlc {
         self.low = self.close;
         self.high = self.close;
     }
-    pub fn add_tick(&mut self, tick: &NamedTick) {
-        let bid: f64 = tick.tick.bid.parse().unwrap();
+    pub fn add_tick(&mut self, named_tick: &NamedTick) {
+        let bid: f64 = named_tick.tick.bid.parse().unwrap();
         if self.high < bid {
             self.high = bid;
         }
@@ -36,6 +36,6 @@ impl Ohlc {
             self.low = bid;
         }
         self.close = bid;
-        self.volume = self.volume + tick.tick.volume;
+        self.volume = self.volume + named_tick.tick.volume;
     }
 }
