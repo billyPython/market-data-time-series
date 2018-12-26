@@ -9,7 +9,10 @@ pub struct NamedTick {
 }
 
 impl NamedTick {
-    pub fn parse_tick_from_bytes(bytes: &[u8]) -> Tick {
-        parse_from_bytes(bytes).unwrap()
+    pub fn from_frames(frames: Mt5EventZmqFrames) -> NamedTick {
+        NamedTick {
+            symbol: String::from_utf8(frames.name).unwrap(),
+            tick: parse_from_bytes(&frames.payload).unwrap(),
+        }
     }
 }
