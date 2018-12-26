@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  influxdb:
+    image: influxdb
+    environment:
+      - INFLUXDB_DB=mdts
+      - INFLUXDB_USER=mt5
+      - INFLUXDB_USER_PASSWORD=mt5
+
+  mdts:
+    build: .
+    depends_on:
+      - influxdb
+    volumes:
+      - ./src:/mdts/src
