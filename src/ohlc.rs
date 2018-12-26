@@ -1,4 +1,4 @@
-use super::super::protobuf_tick::named_tick::NamedTick;
+use named_tick::NamedTick;
 
 #[derive(Debug)]
 pub struct Ohlc {

@@ -1,5 +1,6 @@
-use super::tick::Tick;
+use mt5_event_subscriber::Mt5EventZmqFrames;
 use protobuf::parse_from_bytes;
+use tick::Tick;
 
 #[derive(Debug)]
 pub struct NamedTick {
