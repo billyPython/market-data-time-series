@@ -2,7 +2,6 @@ pub struct MT5EventSubscriber {
     pub socket: zmq::Socket,
 }
 
-#[allow(dead_code)]
 pub struct MT5EventFrames {
     pub topic: Vec<u8>,
     pub name: Vec<u8>,
@@ -30,6 +29,7 @@ impl MT5EventSubscriber {
         let socket = ctx.socket(zmq::SUB).unwrap();
         socket.set_subscribe(topic).unwrap();
         socket.connect(uri).unwrap();
+        println!("Connected to {}", uri);
         Self { socket: socket }
     }
 }
