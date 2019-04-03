@@ -10,7 +10,7 @@ RUN USER=root cargo new mdts
 WORKDIR /mdts
 
 # Build and cache dependencies
-COPY ./Cargo.lock ./Cargo.toml ./
+COPY ./Cargo.* ./
 RUN cargo build
 # RUN cargo build --release
 RUN rm -rfv ./src
