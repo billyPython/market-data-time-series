@@ -7,6 +7,8 @@ services:
       - INFLUXDB_DB=mdts
       - INFLUXDB_USER=mt5
       - INFLUXDB_USER_PASSWORD=mt5
+    ports:
+      - 8086:8086
 
   mdts:
     build: .
