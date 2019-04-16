@@ -9,6 +9,8 @@ services:
       - INFLUXDB_USER_PASSWORD=mt5
     ports:
       - 8086:8086
+    volumes:
+      - data:/var/lib/influxdb/data
 
   mdts:
     build: .
@@ -16,3 +18,6 @@ services:
       - influxdb
     volumes:
       - ./src:/mdts/src
+
+volumes:
+  data:
